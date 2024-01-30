@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Health Advice Group - {{ title }}</title>
+        <meta charset="utf-8">
+        <meta name="description" content="{{ description }}">
+        <meta name="author" content="Emily Evers">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <header>
+            <section class="info">
+                <h1>{{ title }}</h1>
+            </section>
+            <nav>
+            </nav>
+
+            {% block header %}{% endblock header %}
+        </header>
+        
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+    </body>
+</html>
