@@ -4,6 +4,8 @@ def Connector():
     def __new__(cls):
         if not hasattr(cls, "instance"):
             cls.instance = super(Connector, cls).__new__(cls)
+
+        return cls.instance
     
     def __init__(self):
         self.Host = os.environ.get('MYSQL_HOST') or 'localhost'
