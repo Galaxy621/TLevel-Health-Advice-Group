@@ -20,6 +20,7 @@
 
                 <nav>
                     <a href="{{ url_for('pages.login') }}">Login</a>
+                    <a href="{{ url_for('pages.index') }}">Home</a>
                 </nav>
             </section>
 
@@ -27,12 +28,23 @@
             {% block header %}{% endblock header %}
         </header>
         
-        <main class="glass">
-            {% block content required %}{% endblock content %}
+        {% if alert is defined %}
+            <section class="container glass alert">
+                <h1>{{ alert }}</h1>
+            </section>
+        {% endif %}
+
+        <main class="container glass">
+            <section class="main-container">
+                    {% block content required %}{% endblock content %}
+            </section>
         </main>
+
+
 
         <footer class="glass-dark">
             <section class="footer-container">
+                <p>&copy; Health Advice Group - 2024</p>
             </section>
         </footer>
     </body>

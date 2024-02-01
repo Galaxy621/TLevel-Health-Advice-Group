@@ -1,7 +1,9 @@
+from connector import Connector
 from flask import Blueprint, render_template, session
 
 # Blueprint is a way to organize a group of related views and other code.
 bp = Blueprint('pages', __name__)
+db_connection = Connector()
 
 @bp.route('/')
 def index():
@@ -14,8 +16,8 @@ def index():
 @bp.route('/login', methods = ["GET", "POST"])
 def login():
     context = {
-        "title": "Login",
-        "description": "Log in to your account to access important health information."
+        "title": f"Login - {db_connection.User}",
+        "description": "Log in to your account to access important health information.",
     }
 
     session["user"] = {}
