@@ -11,7 +11,7 @@ def index():
     }
     return render_template('pages/index.html.j2', **context)
 
-@bp.route('/login')
+@bp.route('/login', methods = ["GET", "POST"])
 def login():
     context = {
         "title": "Login",
