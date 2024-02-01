@@ -2,8 +2,9 @@
 <html lang="en">
 
     <head>
-        <title>Health Advice Group - {{ title }}</title>
+        <title>{{ title }} - Health Advice Group</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styles.css') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico')}}">
         <meta charset="utf-8">
         <meta name="description" content="{{ description }}">
         <meta name="author" content="Emily Evers">
@@ -11,18 +12,28 @@
     </head>
 
     <body>
-        <header>
-            <section class="info">
-                <h1>{{ title }}</h1>
+        <header class="glass">
+            <section class="header-container">
+                <section class="info">
+                    <a href="{{ url_for('pages.index') }}"><h1>Health Advice Group</h1></a>
+                </section>
+
+                <nav>
+                    <a href="{{ url_for('pages.login') }}">Login</a>
+                </nav>
             </section>
-            <nav>
-            </nav>
+
 
             {% block header %}{% endblock header %}
         </header>
         
-        <main>
+        <main class="glass">
             {% block content required %}{% endblock content %}
         </main>
+
+        <footer class="glass-dark">
+            <section class="footer-container">
+            </section>
+        </footer>
     </body>
 </html>

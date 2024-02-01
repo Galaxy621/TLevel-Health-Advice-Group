@@ -1,14 +1,10 @@
+import os
+
 from flask import Flask
 from . import pages
-from config import Config
-
-from flask_mysqldb import MySQL
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(Config)
-
-    mysql = MySQL(app)
-    
+    app.secret_key = os.urandom(12)     
     app.register_blueprint(pages.bp)
     return app

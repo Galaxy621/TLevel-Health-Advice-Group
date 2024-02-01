@@ -1,17 +1,33 @@
 :root {
     --colour-dark: #3a3f44;
-    --colour-dark-highlight: #646a6e;
+    --colour-dark-highlight: #abafb3;
+    --colour-dark-text: #2a2f33;
 
     --colour-light: #fdfffc;
+    --colour-light-text: #eff6ff;
+
     --color-primary: #235789;
 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 * {
-    box-sizing: 0px;
+    box-sizing: border-box;
     border: 0px;
     margin: 0px;
+    color: var(--colour-light-text);
+}
+
+.glass {
+    background: rgba(200,200,220,0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+}
+
+.glass-dark {
+    background: rgba(79, 79, 87, 0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
 }
 
 html, body {
@@ -19,17 +35,77 @@ html, body {
     height: 100%;
 }
 
-header {
-    background-color: var(--colour-dark);
-    background-image: linear-gradient(
-        var(--colour-dark-highlight)
-        var(--colour-dark)
+body {
+    background: linear-gradient(
+        var(--color-primary), #4595df, white
     );
-    color: var(--colour-light);
-    height: 4rem;
-    width: 100%;
 }
 
-header > .info > h1 {
-    font-weight: normal;
+header {
+    color: var(--colour-light);
+    height: 5rem;
+    margin: 8px;
+    border-radius: 8px;
+}
+
+.header-container {
+    height: 100%;
+
+    margin-left: 24px;
+    margin-right: 24px;
+
+    box-sizing: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.info > a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info > a > h1 {
+    font-weight: bold;
+    text-align: center;
+    height: 100%;
+}
+
+.info > a > h1:hover {
+    color: var(--colour-dark);
+}
+
+nav > a {
+    float: right;
+    padding: 8px;
+    border-radius: 8px;
+    margin-left: 8px;
+}
+
+nav > a:hover {
+    /* background-color: var(--colour-dark); */
+    background: rgba(79, 79, 87, 0.4);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    background-color: var(--colour-light);
+    margin: 8px;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: var(--colour-dark-highlight);
+    height: 5rem;
+    margin: 8px;
+    border-radius: 8px;
 }
