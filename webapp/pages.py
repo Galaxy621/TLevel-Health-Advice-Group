@@ -1,3 +1,4 @@
+from re import T
 from connector import Connector
 from flask import Blueprint, render_template, session
 
@@ -16,10 +17,11 @@ def index():
 @bp.route('/login', methods = ["GET", "POST"])
 def login():
     context = {
-        "title": f"Login - {db_connection.User}",
+        "title": f"Login",
         "description": "Log in to your account to access important health information.",
     }
 
     session["user"] = {}
+    session["loggedin"] = not session.get("loggedin", True)
 
     return render_template('pages/login.html.j2', **context)
