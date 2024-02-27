@@ -4,15 +4,18 @@
     <head>
         <title>{{ title }} - Health Advice Group</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet/'+request.endpoint + '.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico')}}">
         <meta charset="utf-8">
         <meta name="description" content="{{ description }}">
         <meta name="author" content="Emily Evers">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block head_extra %}{% endblock head_extra %}
     </head>
 
     <body>
-        <header class="glass">
+        <header class="glass" id="main-header">
             <section class="header-container">
                 <section class="info">
                     <a href="{{ url_for('pages.index') }}"><h1>Health Advice Group</h1></a>
@@ -48,4 +51,21 @@
             </section>
         </footer>
     </body>
+
+    <script>
+    function barAlert(contents, isDark) {
+        const classValue = isDark ? "glass-dark" : "glass";
+        const container = document.createElement("section");
+        container.className = `${classValue} container alert`;
+
+        if (typeof(contents) == 'string') {
+            container.appendChild(document.createTextNode(contents));
+        } else {
+            container.appendChild(contents);
+        }
+
+        const header = document.getElementById("main-header");
+        header.after(container);
+    }
+    </script>
 </html>

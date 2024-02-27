@@ -72,10 +72,15 @@ header {
     font-weight: bold;
     text-align: center;
     height: 100%;
+    padding-left: 9px;
 }
 
 .info > a > h1:hover {
-    color: var(--colour-dark);
+    background: rgba(79, 79, 87, 0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    padding: 8px;
+    border-radius: 8px;
 }
 
 nav > a {
@@ -90,10 +95,16 @@ nav > a:hover {
     background: rgba(79, 79, 87, 0.2);
     border: 1px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(5px);
+    padding: 7px;
 }
 
 a {
     text-decoration: none;
+}
+
+.cornered {
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .container {
